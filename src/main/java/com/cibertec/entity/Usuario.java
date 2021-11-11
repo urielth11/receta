@@ -31,7 +31,7 @@ public class Usuario {
 	private String nombres;
 	private String apellidos;
 	private String correo;
-	private int password;
+	private String password;
 	private int estado;
 	
 	@Temporal(TemporalType.TIMESTAMP)

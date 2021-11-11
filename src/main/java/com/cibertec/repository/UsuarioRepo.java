@@ -6,4 +6,5 @@ import com.cibertec.entity.Usuario;
 
 public interface UsuarioRepo extends JpaRepository<Usuario, Integer> {
 
+	public abstract Usuario getByLogin(String login); 
 }
