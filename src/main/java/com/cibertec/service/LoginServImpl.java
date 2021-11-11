@@ -1,4 +1,4 @@
-package com.cibertec.service.espec;
+package com.cibertec.service;
 
 import java.util.HashSet;
 import java.util.Set;

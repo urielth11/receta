@@ -32,7 +32,7 @@ public class Usuario {
 	private String apellidos;
 	private String correo;
 	private String password;
-	private int estado;
+	private int activo;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

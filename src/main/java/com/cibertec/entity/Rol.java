@@ -17,5 +17,5 @@ public class Rol {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nombre;
-	private int estado;
+	private int activo;
 }
