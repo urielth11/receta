@@ -41,4 +41,9 @@ public class UsuarioServImpl implements UsuarioServ {
 		repo.deleteById(id);
 	}
 
+	@Override
+	public Usuario getByCorreo(String correo) {
+		return repo.getByCorreo(correo);
+	}
+
 }

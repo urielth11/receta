@@ -27,7 +27,7 @@
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
         <img th:src="@{/assets/img/logo-ct.png}" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold text-white">Material Dashboard 2</span>
+        <span class="ms-1 font-weight-bold text-white">Recetas</span>
       </a>
     </div>
     <hr class="horizontal light mt-0 mb-2">
@@ -38,7 +38,7 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
-            <span class="nav-link-text ms-1">Dashboard</span>
+            <span class="nav-link-text ms-1">Inicio</span>
           </a>
         </li>
         <li class="nav-item">
@@ -46,50 +46,18 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1">Tables</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/billing.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
-            </div>
-            <span class="nav-link-text ms-1">Billing</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/virtual-reality.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">view_in_ar</i>
-            </div>
-            <span class="nav-link-text ms-1">Virtual Reality</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/rtl.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
-            </div>
-            <span class="nav-link-text ms-1">RTL</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Notifications</span>
+            <span class="nav-link-text ms-1">Nueva Receta</span>
           </a>
         </li>
         <li class="nav-item mt-3">
-          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
+          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Sección de Usuario</h6>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white " href="../pages/profile.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">person</i>
             </div>
-            <span class="nav-link-text ms-1">Profile</span>
+            <span class="nav-link-text ms-1">Perfil</span>
           </a>
         </li>
         <li class="nav-item">
@@ -97,22 +65,14 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">login</i>
             </div>
-            <span class="nav-link-text ms-1">Sign In</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/sign-up.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">assignment</i>
-            </div>
-            <span class="nav-link-text ms-1">Sign Up</span>
+            <span class="nav-link-text ms-1">Salir</span>
           </a>
         </li>
       </ul>
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="" type="button">Cibertec</a>
       </div>
     </div>
   </aside>
@@ -134,9 +94,18 @@
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+              <a href="#" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">Sign In</span>
+                <span class="d-sm-inline d-none">Perfil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              </a>
+              </li>
+              <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
               </a>
             </li>
           </ul>
@@ -226,9 +195,9 @@
   <!--   Core JS Files   -->
   <script th:src="@{/assets/js/core/popper.min.js}"></script>
   <script th:src="@{/assets/js/core/bootstrap.min.js}"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <script th:src="@{/assets/js/plugins/perfect-scrollbar.min.js}"></script>
+  <script th:src="@{/assets/js/plugins/smooth-scrollbar.min.js}"></script>
+  <script th:src="@{/assets/js/plugins/chartjs.min.js}"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -241,6 +210,7 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script th:src="@{/assets/js/material-dashboard.min.js?v=3.0.0}"></script>
 </body>
 
 </html>

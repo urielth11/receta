@@ -33,7 +33,8 @@ public class LoginServImpl implements UserDetailsService {
 		Usuario bean;
 		//bean=usuarioDAO.iniciarSesion(username);	
 		try {
-			bean=repo.getByLogin(username);	
+			//bean=repo.getByLogin(username);	
+			bean=repo.getByCorreo(username);	
 			Rol rolUsuario = rolRepo.getPorUsuario(bean.getId());
 			
 			System.out.println(bean.getLogin() + " - " +bean.getPassword());
@@ -41,7 +42,7 @@ public class LoginServImpl implements UserDetailsService {
 			rol.add(new SimpleGrantedAuthority(rolUsuario.getNombre()));
 			//rol.add(new SimpleGrantedAuthority(bean.getRol().getCargo()));
 			
-			userDet=new User(bean.getLogin(), bean.getPassword(),rol);
+			userDet=new User(bean.getCorreo(), bean.getPassword(),rol);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

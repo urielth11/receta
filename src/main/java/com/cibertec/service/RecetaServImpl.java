@@ -35,4 +35,14 @@ public class RecetaServImpl implements RecetaServ {
 		repo.deleteById(id);
 	}
 
+	@Override
+	public List<Receta> getMegustaPorUsuario(Integer id) {
+		return repo.getMegustaPorUsuario(id);
+	}
+
+	@Override
+	public List<Receta> getPorUsuario(Integer id) {
+		return repo.getPorUsuario(id);
+	}
+
 }

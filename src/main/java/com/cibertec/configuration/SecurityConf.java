@@ -45,8 +45,8 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
 		//.authorizeRequests().antMatchers("/").permitAll().anyRequest().authenticated()
         .and().formLogin().loginPage("/login").permitAll()
         //.formLogin().loginPage("/login").permitAll()
-        .and().formLogin().successForwardUrl("/principal")
-        .and().formLogin().defaultSuccessUrl("/principal")
+        .and().formLogin().successForwardUrl("/inicio")
+        .and().formLogin().defaultSuccessUrl("/inicio")
 		.and()
         .logout().logoutUrl("/logout").logoutSuccessUrl("/login");
 		//.and().logout().logoutSuccessUrl("/login").permitAll();

@@ -17,14 +17,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cibertec.entity.Receta;
+import com.cibertec.entity.Usuario;
 import com.cibertec.repository.RecetaRepo;
 import com.cibertec.service.espec.RecetaServ;
+import com.cibertec.service.espec.UsuarioServ;
 
 @Controller
 public class LoginCont {
 	
 	@Autowired
 	RecetaServ recetaSer;
+	
+	@Autowired
+	UsuarioServ usuarioSer;
 
 	@RequestMapping(value = {"/",""})
 	public String principal(Model model, HttpSession  session) {
@@ -35,13 +40,19 @@ public class LoginCont {
 			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 			Set<String> roles = authentication.getAuthorities().stream().map(r -> r.getAuthority()).collect(Collectors.toSet());
 			User user = (User)authentication.getPrincipal();
-			session.setAttribute("usuarioLogueado", user.getUsername());
-			session.setAttribute("rolLogueado", roles.stream().findFirst().get());
 			
-			System.out.println(user.getUsername());
+			Usuario usuario = usuarioSer.getByCorreo(user.getUsername());
+			
+			session.setAttribute("usuarioLogueado", usuario.getNombres() + " " + usuario.getApellidos());
+			session.setAttribute("usuarioLogueadoId", usuario.getId());
+			session.setAttribute("rolLogueado", usuario.getRol().getNombre());
+			
+			
+			
+			/*System.out.println(user.getUsername());
 			System.out.println("");
 			System.out.println(roles.stream().findFirst().get());
-			System.out.println("");
+			System.out.println("");*/
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,11 +70,18 @@ public class LoginCont {
 	}
 	
 	@RequestMapping(value = {"/inicio","/inicio/"})
-	public String inicio(Model model) {
+	public String inicio(Model model, HttpSession  session) {
 		Map<String, Object> salida = new HashMap<>();
 		
 		try {
+			Integer usuarioId = (Integer) session.getAttribute("usuarioLogueadoId");
+			List<Receta> recetasUsuario = recetaSer.getPorUsuario(usuarioId);
+			List<Receta> recetasMegusta = recetaSer.getMegustaPorUsuario(usuarioId);
+
+			
 			List<Receta> recetas = recetaSer.list();
+			salida.put("recetasUsuario", recetasUsuario);
+			salida.put("recetasMegusta", recetasMegusta);
 			salida.put("recetas", recetas);
 			salida.put("titulo", "Últimas recetas");
 			

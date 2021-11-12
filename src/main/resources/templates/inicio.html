@@ -7,8 +7,9 @@
     <nav th:replace="plantilla/plantilla.html :: navbar"></nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
+    
       <div class="row mt-4">
-      
+      	<h4>Recientes</h4>
         <div class="col-lg-4 col-md-6 mt-4 mb-4" th:each="receta : ${recetas}">
           <div class="card z-index-2 ">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
@@ -19,18 +20,69 @@
               </div>
             </div>
             <div class="card-body">
-              <h6 class="mb-0" th:text="${receta.nombre}">Website Views</h6>
-              <p class="text-sm" th:text="${receta.preparacion}">Last Campaign Performance</p>
+			<a th:href="@{/megusta/registrar/}+${receta.id}"><i class="material-icons text-primary my-auto me-1">favorite_border</i></a>	
+              <h6 class="mb-0" th:text="${receta.nombre}">receta.nombre</h6>
+              <p class="text-sm" th:text="${receta.preparacion}">receta.preparacion</p>
               <hr class="dark horizontal">
               <div class="d-flex ">
-                <i class="material-icons text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm" th:text="${receta.alcance}"> campaign sent 2 days ago </p>
+                <i class="material-icons text-sm my-auto me-1">group</i>
+                <p class="mb-0 text-sm" th:text="${receta.alcance}"> receta.alcance </p>
               </div>
             </div>
           </div>
         </div>
-        
       </div>
+      
+      <div class="row mt-4">
+      	<h4>Me gustan</h4>
+        <div class="col-lg-4 col-md-6 mt-4 mb-4" th:each="recetam : ${recetasMegusta}">
+          <div class="card z-index-2 ">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-dark shadow-primary border-radius-lg py-3 pe-1">
+                <div class="chart">
+                  <iframe width="100%" height="100%" th:src="${recetam.video}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+			<a th:href="@{/megusta/registrar/}+${recetam.id}"><i class="material-icons text-primary my-auto me-1">favorite_border</i></a>
+              <h6 class="mb-0" th:text="${recetam.nombre}">receta.nombre</h6>
+              <p class="text-sm" th:text="${recetam.preparacion}">receta.preparacion</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-icons text-sm my-auto me-1">group</i>
+                <p class="mb-0 text-sm" th:text="${recetam.alcance}"> receta.alcance </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mt-4">
+      	<h4>Mis recetas</h4>
+        <div class="col-lg-4 col-md-6 mt-4 mb-4" th:each="recetau : ${recetasUsuario}">
+          <div class="card z-index-2 ">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-dark shadow-primary border-radius-lg py-3 pe-1">
+                <div class="chart">
+                  <iframe width="100%" height="100%" th:src="${recetau.video}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+			<a th:href="@{/megusta/registrar/}+${recetau.id}"><i class="material-icons text-primary my-auto me-1">favorite_border</i></a>
+              <h6 class="mb-0" th:text="${recetau.nombre}">receta.nombre</h6>
+              <p class="text-sm" th:text="${recetau.preparacion}">receta.preparacion</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-icons text-sm my-auto me-1">group</i>
+                <p class="mb-0 text-sm" th:text="${recetau.alcance}"> receta.alcance </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <footer th:replace="plantilla/plantilla.html :: footer"></footer>
     </div>
   </main>
@@ -38,9 +90,22 @@
   <!--   Core JS Files   -->
   <script th:src="@{/assets/js/core/popper.min.js}"></script>
   <script th:src="@{/assets/js/core/bootstrap.min.js}"></script>
+  <script th:src="@{/assets/js/plugins/perfect-scrollbar.min.js}"></script>
+  <script th:src="@{/assets/js/plugins/smooth-scrollbar.min.js}"></script>
+  <script th:src="@{/assets/js/plugins/chartjs.min.js}"></script>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script th:src="@{/assets/js/material-dashboard.min.js?v=3.0.0}"></script>
 </body>
 
 </html>

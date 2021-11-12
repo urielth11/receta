@@ -35,4 +35,9 @@ public class MegustaServImpl implements MegustaServ {
 		repo.deleteById(id);
 	}
 
+	@Override
+	public Megusta getPorUsuarioPorReceta(Integer idUsuario, Integer idReceta) {
+		return repo.getPorUsuarioPorReceta(idUsuario, idReceta);
+	}
+
 }
