@@ -67,6 +67,7 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
                 		"/usuario/**",
                 		"/layout/**",
                 		"/templates/**",
-                		"/assets/**");
+                		"/assets/**",
+                		"/rest/**");
     }
 }

@@ -32,6 +32,7 @@ public class Receta {
 	private int alcance;
 	private String preparacion;
 	private int activo;
+	private String codigoVideo;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

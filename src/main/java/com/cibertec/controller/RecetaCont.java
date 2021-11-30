@@ -51,9 +51,16 @@ public class RecetaCont {
 			Integer usuarioId = (Integer) session.getAttribute("usuarioLogueadoId");
 			usuario.setId(usuarioId);
 			
+			
+			
 			obj.setFechaRegistro(new Date());
 			obj.setActivo(1);
 			obj.setUsuario(usuario);
+			
+			if(obj.getVideo()!=null) {
+			String[] video =  obj.getVideo().split("/");
+			obj.setCodigoVideo(video[video.length - 1]);
+			}
 			Receta objSalida = serv.save(obj);
 			if (objSalida == null) {
 				model.addAttribute("mensaje", "Error en el registro");
