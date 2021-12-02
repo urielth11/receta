@@ -10,4 +10,5 @@ public interface RecetaServ extends CrudServ<Receta> {
 	
 	public abstract List<Receta> getPorUsuario(Integer id); 
 	
+	public abstract List<Receta> listarActivo();
 }
