@@ -45,4 +45,9 @@ public class RecetaServImpl implements RecetaServ {
 		return repo.getPorUsuario(id);
 	}
 
+	@Override
+	public List<Receta> listarActivo() {
+		return repo.listarActivo();
+	}
+
 }

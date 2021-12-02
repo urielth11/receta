@@ -79,7 +79,7 @@ public class LoginCont {
 			List<Receta> recetasMegusta = recetaSer.getMegustaPorUsuario(usuarioId);
 
 			
-			List<Receta> recetas = recetaSer.list();
+			List<Receta> recetas = recetaSer.listarActivo();
 			salida.put("recetasUsuario", recetasUsuario);
 			salida.put("recetasMegusta", recetasMegusta);
 			salida.put("recetas", recetas);

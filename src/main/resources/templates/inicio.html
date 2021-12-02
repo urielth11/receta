@@ -71,6 +71,9 @@
             </div>
             <div class="card-body">
 			<a th:href="@{/megusta/registrar/}+${recetau.id}"><i class="material-icons text-primary my-auto me-1">favorite_border</i></a>
+			<a th:href="@{/receta/editar/}+${recetau.id}"><i class="material-icons text-primary my-auto me-1">edit</i></a>
+			<a th:href="@{/receta/eliminar/}+${recetau.id}"><i class="material-icons text-primary my-auto me-1">delete</i></a>
+			
               <h6 class="mb-0" th:text="${recetau.nombre}">receta.nombre</h6>
               <p class="text-sm" th:text="${recetau.preparacion}">receta.preparacion</p>
               <hr class="dark horizontal">
